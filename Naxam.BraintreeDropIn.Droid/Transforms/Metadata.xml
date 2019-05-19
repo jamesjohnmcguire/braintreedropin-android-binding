@@ -9,7 +9,8 @@
   <!--<attr
     path="/api/package[@name='com.google.protobuf']/class[@name='LazyStringArrayList']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
     name="managedName">GetString</attr>-->
-  <add-node path="/api/package[@name='com.braintreepayments.api.dropin.adapters']/class[@name='VaultedPaymentMethodsAdapter']">
+
+	<add-node path="/api/package[@name='com.braintreepayments.api.dropin.adapters']/class[@name='VaultedPaymentMethodsAdapter']">
     <method abstract="false"
             deprecated="not deprecated"
             final="false"

@@ -215,7 +215,7 @@ namespace BraintreeDropInQs
             mNonceString.Visibility = Android.Views.ViewStates.Gone;
             mNonceDetails.Visibility = Android.Views.ViewStates.Gone;
             mDeviceData.Visibility = Android.Views.ViewStates.Gone;
-            mPurchaseButton.Enabled = false;
+            //mPurchaseButton.Enabled = false;
         }
 
         private string formatAddress(PostalAddress address)
@@ -274,9 +274,9 @@ namespace BraintreeDropInQs
 
         protected override void Reset()
         {
-            mPurchaseButton.Enabled = false;
+            //mPurchaseButton.Enabled = false;
 
-            mAddPaymentMethodButton.Visibility = ViewStates.Gone;
+            //mAddPaymentMethodButton.Visibility = ViewStates.Gone;
 
             clearNonce();
         }

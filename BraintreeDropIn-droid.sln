@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naxam.BraintreeDropIn.Droid", "Naxam.BraintreeDropIn.Droid\Naxam.BraintreeDropIn.Droid.csproj", "{33E916F1-74CE-40E0-A5A8-B7043C3623F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BraintreeDropInQs", "BraintreeDropInQs\BraintreeDropInQs.csproj", "{040714AD-8105-4006-8DA5-77D2775EA9A9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{B6D84F02-DDC1-40FE-B8BF-E2FB83C77BAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardFormBindings", "CardFormBindings\CardFormBindings.csproj", "{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +27,18 @@ Global
 		{040714AD-8105-4006-8DA5-77D2775EA9A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{040714AD-8105-4006-8DA5-77D2775EA9A9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{040714AD-8105-4006-8DA5-77D2775EA9A9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {19A455B3-7C17-4181-9CFB-37985260534D}
-	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{040714AD-8105-4006-8DA5-77D2775EA9A9} = {B6D84F02-DDC1-40FE-B8BF-E2FB83C77BAA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19A455B3-7C17-4181-9CFB-37985260534D}
 	EndGlobalSection
 EndGlobal
