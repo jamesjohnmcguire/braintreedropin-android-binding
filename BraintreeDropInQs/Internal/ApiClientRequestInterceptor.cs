@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Square.Retrofit;
 
-namespace BraintreeDropInQs.Internal
+namespace NaxamDemoCopy.Internal
 {
     public class ApiClientRequestInterceptor :Java.Lang.Object, IRequestInterceptor
     {

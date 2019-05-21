@@ -1,6 +1,6 @@
 ﻿using GoogleGson.Annotations;
 
-namespace BraintreeDropInQs.Models
+namespace NaxamDemoCopy.Models
 {
     public class Transaction: Java.Lang.Object
     {

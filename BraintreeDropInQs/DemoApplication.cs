@@ -6,16 +6,14 @@ using Android.OS;
 using Android.Runtime;
 using Java.Lang;
 using static Java.Lang.Thread;
-using BraintreeDropInQs.Internal;
+//using NaxamDemoCopy.Internal;
 using Com.Braintreepayments.Api;
 
-namespace BraintreeDropInQs
+namespace NaxamDemoCopy
 {
     [Application]
     public class DemoApplication : Application, IUncaughtExceptionHandler
     {
-        private static ApiClient sApiClient;
-
         private Thread.IUncaughtExceptionHandler mDefaultExceptionHandler;
 
         public DemoApplication() : base()
@@ -61,19 +59,13 @@ namespace BraintreeDropInQs
             // throw log here
 
         }
-        public static ApiClient getApiClient(Context context)
-        {
-            if (sApiClient == null)
-            {
-                sApiClient = new ApiClientImpl(Settings.GetEnvironmentUrl(context));
-            }
-
-            return sApiClient;
-        }
+        //public static ApiClient getApiClient(Context context)
+        //{
+        //    return null;
+        //}
 
         public static void ResetApiClient()
         {
-            sApiClient = null;
         }
     }
 }

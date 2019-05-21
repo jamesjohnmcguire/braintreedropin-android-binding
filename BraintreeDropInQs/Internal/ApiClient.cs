@@ -13,11 +13,11 @@ using Square.Retrofit.Http;
 using Square.Retrofit.Client;
 using Square.Retrofit;
 using System.Net.Http;
-using BraintreeDropInQs.Models;
+using NaxamDemoCopy.Models;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 
-namespace BraintreeDropInQs.Internal
+namespace NaxamDemoCopy.Internal
 {
     public interface ApiClient
     {

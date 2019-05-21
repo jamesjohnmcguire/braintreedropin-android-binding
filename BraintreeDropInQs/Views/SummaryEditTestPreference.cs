@@ -13,7 +13,7 @@ using Android.Preferences;
 using Android.Util;
 using Java.Lang;
 
-namespace BraintreeDropInQs.Views
+namespace NaxamDemoCopy.Views
 {
     public class SummaryEditTestPreference : EditTextPreference
     {

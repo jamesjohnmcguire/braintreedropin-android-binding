@@ -2,7 +2,7 @@
 using Android.Content;
 using Android.Preferences;
 
-namespace BraintreeDropInQs
+namespace NaxamDemoCopy
 {
     public class Settings
     {

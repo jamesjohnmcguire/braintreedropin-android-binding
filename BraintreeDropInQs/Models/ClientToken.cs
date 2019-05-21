@@ -12,7 +12,7 @@ using Android.Widget;
 using GoogleGson.Annotations;
 using Newtonsoft.Json;
 
-namespace BraintreeDropInQs.Models
+namespace NaxamDemoCopy.Models
 {
     public class ClientToken: Java.Lang.Object
     {

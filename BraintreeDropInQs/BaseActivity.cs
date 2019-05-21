@@ -9,14 +9,14 @@ using static Android.Support.V4.App.ActivityCompat;
 using Com.Braintreepayments.Api.Interfaces;
 using Com.Braintreepayments.Api.Models;
 using Com.Braintreepayments.Api;
-using BraintreeDropInQs.ApiInternal;
+//using NaxamDemoCopy.ApiInternal;
 using Android.Support.V4.Content;
 using Android.Support.V4.App;
 using Android.Content.PM;
 using Android.Text;
 using Com.Paypal.Android.Sdk.Onetouch.Core;
 
-namespace BraintreeDropInQs
+namespace NaxamDemoCopy
 {
     [Activity(Label = "BaseActivity")]
     public abstract class BaseActivity : 
@@ -44,8 +44,9 @@ namespace BraintreeDropInQs
 
             if (savedInstanceState != null && savedInstanceState.ContainsKey(KEY_AUTHORIZATION))
             {
-                mAuthorization = savedInstanceState.GetString(KEY_AUTHORIZATION);
-            }
+                 mAuthorization = savedInstanceState.GetString(KEY_AUTHORIZATION);
+				//mAuthorization = "sandbox_tmxhyf7d_dcpspy2brwdjr3qn";
+			}
         }
 
         protected override void OnResume()
@@ -57,8 +58,8 @@ namespace BraintreeDropInQs
                 mActionBarSetup = true;
             }
 
-            SignatureVerificationOverrides.disableAppSwitchSignatureVerification(
-                    Settings.isPayPalSignatureVerificationDisabled(this));
+            //SignatureVerificationOverrides.disableAppSwitchSignatureVerification(
+            //        Settings.isPayPalSignatureVerificationDisabled(this));
             PayPalOneTouchCore.UseHardcodedConfig(this, Settings.useHardcodedPayPalConfiguration(this));
 
             if (BuildConfig.DEBUG && ContextCompat.CheckSelfPermission(this, WRITE_EXTERNAL_STORAGE) != 0)
@@ -98,7 +99,7 @@ namespace BraintreeDropInQs
 
         void PerformReset()
         {
-            mAuthorization = null;
+//            mAuthorization = null;
             mCustomerId = Settings.GetCustomerId(this);
 
             if (mBraintreeFragment == null)
@@ -142,23 +143,26 @@ namespace BraintreeDropInQs
             }
             else
             {
-                DemoApplication.getApiClient(this).GetClientToken(
-                        Settings.GetCustomerId(this),
-                        Settings.GetMerchantAccountId(this))
-                        .ContinueWith(t =>
-                        {
-                            if (t.IsFaulted || TextUtils.IsEmpty(t.Result))
-                            {
-                                ShowDialog("Client token was empty");
-                            }
-                            else
-                            {
-                                mAuthorization = t.Result;
-                                OnAuthorizationFetched();
-                            }
-                        });
-            }
-        }
+				mAuthorization = Settings.GetEnvironmentTokenizationKey(this);
+				OnAuthorizationFetched();
+
+				//DemoApplication.getApiClient(this).GetClientToken(
+				//        Settings.GetCustomerId(this),
+				//        Settings.GetMerchantAccountId(this))
+				//        .ContinueWith(t =>
+				//        {
+				//            if (t.IsFaulted || TextUtils.IsEmpty(t.Result))
+				//            {
+				//                ShowDialog("Client token was empty");
+				//            }
+				//            else
+				//            {
+				//                mAuthorization = t.Result;
+				//                OnAuthorizationFetched();
+				//            }
+				//        });
+			}
+		}
 
         void SetupActionBar()
         {

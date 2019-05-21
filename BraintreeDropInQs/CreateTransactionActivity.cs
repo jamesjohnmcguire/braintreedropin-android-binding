@@ -6,11 +6,11 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.App;
 using Com.Braintreepayments.Api.Models;
-using BraintreeDropInQs.Models;
+using NaxamDemoCopy.Models;
 using Android.Text;
 using System.Threading.Tasks;
 
-namespace BraintreeDropInQs
+namespace NaxamDemoCopy
 {
     [Activity(Label = "CreateTransactionActivity", Theme = "@style/Theme.AppCompat.Light")]
     public class CreateTransactionActivity : AppCompatActivity
@@ -30,56 +30,58 @@ namespace BraintreeDropInQs
 
         async void SendNonceToServer(PaymentMethodNonce nonce)
         {
-            Task<Transaction> task;
+			SetMessage(new Java.Lang.String("SendNonceToServer"));
 
-            if (Settings.isThreeDSecureEnabled(this) && Settings.isThreeDSecureRequired(this))
-            {
-                task = DemoApplication.getApiClient(this).CreateTransaction(nonce.Nonce, Settings.GetThreeDSecureMerchantAccountId(this), true);
-            }
-            else if (Settings.isThreeDSecureEnabled(this))
-            {
-                task = DemoApplication.getApiClient(this).CreateTransaction(nonce.Nonce, Settings.GetThreeDSecureMerchantAccountId(this));
-            }
-            else if (nonce is CardNonce && ((CardNonce)nonce).CardType.Equals("UnionPay"))
-            {
-                task = DemoApplication.getApiClient(this).CreateTransaction(nonce.Nonce, Settings.GetUnionPayMerchantAccountId(this));
-            }
-            else
-            {
-                task = DemoApplication.getApiClient(this).CreateTransaction(nonce.Nonce, Settings.GetMerchantAccountId(this));
-            }
+			//Task<Transaction> task;
 
-            var transaction = await task;
+			//if (Settings.isThreeDSecureEnabled(this) && Settings.isThreeDSecureRequired(this))
+			//{
+			//    task = DemoApplication.getApiClient(this).CreateTransaction(nonce.Nonce, Settings.GetThreeDSecureMerchantAccountId(this), true);
+			//}
+			//else if (Settings.isThreeDSecureEnabled(this))
+			//{
+			//    task = DemoApplication.getApiClient(this).CreateTransaction(nonce.Nonce, Settings.GetThreeDSecureMerchantAccountId(this));
+			//}
+			//else if (nonce is CardNonce && ((CardNonce)nonce).CardType.Equals("UnionPay"))
+			//{
+			//    task = DemoApplication.getApiClient(this).CreateTransaction(nonce.Nonce, Settings.GetUnionPayMerchantAccountId(this));
+			//}
+			//else
+			//{
+			//    task = DemoApplication.getApiClient(this).CreateTransaction(nonce.Nonce, Settings.GetMerchantAccountId(this));
+			//}
 
-            if (transaction == null)
-            {
-                SetStatus(Resource.String.transaction_failed);
-                SetMessage(new Java.Lang.String("Unable to create a transaction"));
+			//var transaction = await task;
 
-                return;
-            }
+			//if (transaction == null)
+			//{
+			//    SetStatus(Resource.String.transaction_failed);
+			//    SetMessage(new Java.Lang.String("Unable to create a transaction"));
 
-            if (transaction.Message != null &&
-                   transaction.Message.StartsWith("created"))
-            {
-                SetStatus(Resource.String.transaction_complete);
-                SetMessage(new Java.Lang.String(transaction.Message));
-            }
-            else
-            {
-                SetStatus(Resource.String.transaction_failed);
-                if (TextUtils.IsEmpty(transaction.Message))
-                {
-                    SetMessage(new Java.Lang.String("Server response was empty or malformed"));
-                }
-                else
-                {
-                    SetMessage(new Java.Lang.String(transaction.Message));
-                }
-            }
-        }
+			//    return;
+			//}
 
-        void SetStatus(int message)
+			//if (transaction.Message != null &&
+			//       transaction.Message.StartsWith("created"))
+			//{
+			//    SetStatus(Resource.String.transaction_complete);
+			//    SetMessage(new Java.Lang.String(transaction.Message));
+			//}
+			//else
+			//{
+			//    SetStatus(Resource.String.transaction_failed);
+			//    if (TextUtils.IsEmpty(transaction.Message))
+			//    {
+			//        SetMessage(new Java.Lang.String("Server response was empty or malformed"));
+			//    }
+			//    else
+			//    {
+			//        SetMessage(new Java.Lang.String(transaction.Message));
+			//    }
+			//}
+		}
+
+		void SetStatus(int message)
         {
             mLoadingSpinner.Visibility = ViewStates.Gone;
             SetTitle(message);

@@ -10,9 +10,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Support.V7.App;
-using BraintreeDropInQs.fragments;
+//using NaxamDemoCopy.fragments;
 
-namespace BraintreeDropInQs
+namespace NaxamDemoCopy
 {
     [Activity(Label = "SettingsActivity", Theme = "@style/Theme.AppCompat.Light")]
     public class SettingsActivity : AppCompatActivity
@@ -22,9 +22,9 @@ namespace BraintreeDropInQs
             base.OnCreate(savedInstanceState);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
-            FragmentManager.BeginTransaction()
-                    .Replace(Android.Resource.Id.Content, new SettingsFragment())
-                    .Commit();
+            //FragmentManager.BeginTransaction()
+            //        .Replace(Android.Resource.Id.Content, new SettingsFragment())
+            //        .Commit();
 
         }
 

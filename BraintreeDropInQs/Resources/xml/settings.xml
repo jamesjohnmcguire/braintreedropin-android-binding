@@ -28,8 +28,8 @@
   <PreferenceCategory
     android:title="@string/options">
 
-    <BraintreeDropInQs.Views.SummaryEditTestPreference
-      android:key="merchant_account"
+	  <NaxamDemoCopy.Views.SummaryEditTestPreference
+		android:key="merchant_account"
       android:title="@string/merchant_account"
       android:summary="@string/empty_merchant_account"
       android:defaultValue=""/>
@@ -57,14 +57,14 @@
       android:summary="@string/android_pay_require_phone_number_summary"
       android:defaultValue="false" />
 
-    <BraintreeDropInQs.Views.SummaryEditTestPreference
-      android:key="android_pay_currency"
+	  <NaxamDemoCopy.Views.SummaryEditTestPreference
+		android:key="android_pay_currency"
       android:title="@string/android_pay_currency_title"
       android:summary="@string/android_pay_currency_summary"
       android:defaultValue="USD" />
 
-    <BraintreeDropInQs.Views.SummaryEditTestPreference
-      android:key="android_pay_allowed_countries_for_shipping"
+	  <NaxamDemoCopy.Views.SummaryEditTestPreference
+		android:key="android_pay_allowed_countries_for_shipping"
       android:title="@string/android_pay_allowed_countries_for_shipping_title"
       android:summary="@string/android_pay_allowed_countries_for_shipping_summary"
       android:defaultValue="US" />

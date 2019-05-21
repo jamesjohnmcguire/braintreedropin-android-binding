@@ -19,9 +19,9 @@ using Android.Runtime;
 using Java.Interop;
 using System;
 
-namespace BraintreeDropInQs
+namespace NaxamDemoCopy
 {
-    [Activity(Label = "BraintreeDropInQs", MainLauncher = true, Theme = "@style/Theme.AppCompat.Light")]
+    [Activity(Label = "NaxamDemoCopy", MainLauncher = true, Theme = "@style/Theme.AppCompat.Light")]
     public class MainActivity : BaseActivity, IPaymentMethodNonceCreatedListener, IBraintreeCancelListener, IBraintreeErrorListener, DropInResult.IDropInResultListener
     {
         static int DROP_IN_REQUEST = 100;
@@ -77,8 +77,9 @@ namespace BraintreeDropInQs
         void MAddPaymentMethodButton_Click(object sender, System.EventArgs e)
         {
             DropInRequest dropInRequest = new DropInRequest()
-                  .ClientToken(mAuthorization)
-                  .Amount("1.00")
+				  .ClientToken(mAuthorization)
+//				  .ClientToken("test_1299654099_biz_api1.kevinchows.com")
+				  .Amount("1.00")
                   .RequestThreeDSecureVerification(Settings.isThreeDSecureEnabled(this))
                   .CollectDeviceData(Settings.ShouldCollectDeviceData(this))
                   .AndroidPayCart(getAndroidPayCart())
@@ -350,7 +351,7 @@ namespace BraintreeDropInQs
             }
         }
 
-        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Android.App.Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
 
@@ -367,8 +368,9 @@ namespace BraintreeDropInQs
                 SafelyCloseLoadingView();
                 var error = data.GetSerializableExtra(DropInActivity.ExtraError);
 
-                ShowDialog(((Java.Lang.Exception)error)
-                        .Message);
+				Java.Lang.Exception exeption = (Java.Lang.Exception)error;
+
+				ShowDialog((exeption).Message);
             }
         }
 

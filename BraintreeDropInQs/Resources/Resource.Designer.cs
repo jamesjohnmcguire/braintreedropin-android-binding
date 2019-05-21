@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("BraintreeDropInQs.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("NaxamDemoCopy.Resource", IsApplication=true)]
 
-namespace BraintreeDropInQs
+namespace NaxamDemoCopy
 {
 	
 	

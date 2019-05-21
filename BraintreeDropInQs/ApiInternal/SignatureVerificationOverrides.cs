@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Com.Braintreepayments.Api.Internal;
 
-namespace BraintreeDropInQs.ApiInternal
+namespace NaxamDemoCopy.ApiInternal
 {
     public class SignatureVerificationOverrides
     {

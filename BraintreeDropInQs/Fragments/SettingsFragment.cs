@@ -10,9 +10,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Preferences;
-using BraintreeDropInQs.Views;
+using NaxamDemoCopy.Views;
 
-namespace BraintreeDropInQs.fragments
+namespace NaxamDemoCopy.fragments
 {
     public class SettingsFragment : PreferenceFragment, ISharedPreferencesOnSharedPreferenceChangeListener
     {
