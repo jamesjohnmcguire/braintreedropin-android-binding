@@ -1,6 +1,8 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Support.V7.App;
+using static Android.Support.V4.App.ActivityCompat;
 using Com.Braintreepayments.Api.Models;
 using Android.Support.V7.Widget;
 using Com.Braintreepayments.Api.Exceptions;
@@ -18,17 +20,29 @@ using Java.Lang;
 using Android.Runtime;
 using Java.Interop;
 using System;
+using Com.Paypal.Android.Sdk.Onetouch.Core;
 
-namespace NaxamDemoCopy
+namespace NaxamDemoSlim
 {
-    [Activity(Label = "NaxamDemoCopy", MainLauncher = true, Theme = "@style/Theme.AppCompat.Light")]
-    public class MainActivity : BaseActivity, IPaymentMethodNonceCreatedListener, IBraintreeCancelListener, IBraintreeErrorListener, DropInResult.IDropInResultListener
+    [Activity(Label = "NaxamDemoSlim", MainLauncher = true, Theme = "@style/Theme.AppCompat.Light")]
+    public class MainActivity
+		:
+		AppCompatActivity,
+		IPaymentMethodNonceCreatedListener, 
+		IBraintreeCancelListener, 
+		IBraintreeErrorListener, 
+		DropInResult.IDropInResultListener
     {
-        static int DROP_IN_REQUEST = 100;
+		static string KEY_AUTHORIZATION = "com.braintreepayments.demo.KEY_AUTHORIZATION";
+		static int DROP_IN_REQUEST = 100;
 
         static string KEY_NONCE = "nonce";
 
-        PaymentMethodType mPaymentMethodType;
+		protected string mAuthorization;
+		protected string mCustomerId;
+		protected BraintreeFragment mBraintreeFragment;
+
+		PaymentMethodType mPaymentMethodType;
         PaymentMethodNonce mNonce;
 
         CardView mPaymentMethod;
@@ -47,9 +61,13 @@ namespace NaxamDemoCopy
 
         bool mPurchased = false;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+		internal static MainActivity Instance { get; private set; }
+
+		protected override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(savedInstanceState);
+			Instance = this;
+
+			base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.main_activity);
 
             mPaymentMethod = FindViewById<CardView>(Resource.Id.payment_method);
@@ -65,7 +83,9 @@ namespace NaxamDemoCopy
 
             mPurchaseButton = FindViewById<Button>(Resource.Id.purchase);
 
-            if (savedInstanceState != null)
+			mCustomerId = "test_1299654099_biz_api1.kevinchows.com";
+
+			if (savedInstanceState != null)
             {
                 if (savedInstanceState.ContainsKey(KEY_NONCE))
                 {
@@ -76,28 +96,26 @@ namespace NaxamDemoCopy
 
         void MAddPaymentMethodButton_Click(object sender, System.EventArgs e)
         {
-            DropInRequest dropInRequest = new DropInRequest()
-				  .ClientToken(mAuthorization)
-//				  .ClientToken("test_1299654099_biz_api1.kevinchows.com")
-				  .Amount("1.00")
-                  .RequestThreeDSecureVerification(Settings.isThreeDSecureEnabled(this))
-                  .CollectDeviceData(Settings.ShouldCollectDeviceData(this))
-                  .AndroidPayCart(getAndroidPayCart())
-                  .AndroidPayShippingAddressRequired(Settings.IsAndroidPayShippingAddressRequired(this))
-                  .AndroidPayPhoneNumberRequired(Settings.IsAndroidPayPhoneNumberRequired(this))
-                  .AndroidPayAllowedCountriesForShipping(Settings.GetAndroidPayAllowedCountriesForShipping(this));
-
-            if (Settings.isPayPalAddressScopeRequested(this))
-            {
-                dropInRequest.PaypalAdditionalScopes(new List<string> { PayPal.ScopeAddress });
-            }
-
-            StartActivityForResult(dropInRequest.GetIntent(this), DROP_IN_REQUEST);
+			PaymentService.SubmitPayment(mAuthorization);
+			//AddPaymentMethod();
         }
 
-        protected override void OnResume()
+		public void AddPaymentMethod()
+		{
+			DropInRequest dropInRequest = new DropInRequest();
+			dropInRequest.ClientToken(mAuthorization);
+			dropInRequest.Amount("1.00");
+
+			StartActivityForResult(dropInRequest.GetIntent(this), DROP_IN_REQUEST);
+		}
+
+		protected override void OnResume()
         {
-            base.OnResume();
+			PayPalOneTouchCore.UseHardcodedConfig(this, true);
+			mAuthorization = "sandbox_tmxhyf7d_dcpspy2brwdjr3qn";
+
+			base.OnResume();
+
             if (mPurchased)
             {
                 mPurchased = false;
@@ -124,27 +142,29 @@ namespace NaxamDemoCopy
         protected override void OnSaveInstanceState(Bundle outState)
         {
             base.OnSaveInstanceState(outState);
-            if (mNonce != null)
+			if (mAuthorization != null)
+			{
+				outState.PutString(KEY_AUTHORIZATION, mAuthorization);
+			}
+			if (mNonce != null)
             {
                 outState.PutParcelable(KEY_NONCE, mNonce);
             }
         }
-        public override void OnPaymentMethodNonceCreated(PaymentMethodNonce paymentMethodNonce)
+        public void OnPaymentMethodNonceCreated(PaymentMethodNonce paymentMethodNonce)
         {
             System.Diagnostics.Debug.WriteLine("Payment Method Nonce received: " + paymentMethodNonce.TypeLabel);
         }
 
-        public override void OnCancel(int requestCode)
+        public void OnCancel(int requestCode)
         {
             System.Diagnostics.Debug.WriteLine("Cancel received: " + requestCode);
         }
 
-        public override void OnError(Java.Lang.Exception error)
+        public void OnError(Java.Lang.Exception error)
         {
             System.Diagnostics.Debug.WriteLine("Error received (" + error.GetType() + "): " + error.Message);
             //mLogger.debug(error.toString());
-
-            ShowDialog("An error occurred ");
         }
 
         [ExportAttribute("purchase")]
@@ -153,16 +173,8 @@ namespace NaxamDemoCopy
             if (mPaymentMethodType == PaymentMethodType.AndroidPay && mNonce == null)
             {
                 List<Android.Gms.Identity.Intents.Model.CountrySpecification> countries = new List<Android.Gms.Identity.Intents.Model.CountrySpecification>();
-                foreach (string countryCode in Settings.GetAndroidPayAllowedCountriesForShipping(this))
-                {
-                    countries.Add(new Android.Gms.Identity.Intents.Model.CountrySpecification(countryCode));
-                }
 
                 mShouldMakePurchase = true;
-
-                AndroidPay.RequestAndroidPay(mBraintreeFragment, getAndroidPayCart(),
-                        Settings.IsAndroidPayShippingAddressRequired(this),
-                        Settings.IsAndroidPayPhoneNumberRequired(this), countries);
             }
             else
             {
@@ -216,7 +228,6 @@ namespace NaxamDemoCopy
             mNonceString.Visibility = Android.Views.ViewStates.Gone;
             mNonceDetails.Visibility = Android.Views.ViewStates.Gone;
             mDeviceData.Visibility = Android.Views.ViewStates.Gone;
-            //mPurchaseButton.Enabled = false;
         }
 
         private string formatAddress(PostalAddress address)
@@ -240,7 +251,7 @@ namespace NaxamDemoCopy
         private Cart getAndroidPayCart()
         {
             return Cart.NewBuilder()
-                    .SetCurrencyCode(Settings.GetAndroidPayCurrency(this))
+                    .SetCurrencyCode("USD")
                     .SetTotalPrice("1.00")
                     .AddLineItem(LineItem.NewBuilder()
                             .SetCurrencyCode("USD")
@@ -250,36 +261,6 @@ namespace NaxamDemoCopy
                             .SetTotalPrice("1.00")
                             .Build())
                     .Build();
-        }
-
-        protected override void OnAuthorizationFetched()
-        {
-            try
-            {
-                mBraintreeFragment = BraintreeFragment.NewInstance(this, mAuthorization);
-
-                if (ClientToken.FromString(mAuthorization) is ClientToken)
-                {
-                    DropInResult.FetchDropInResult(this, mAuthorization, this);
-                }
-                else
-                {
-                    mAddPaymentMethodButton.Visibility = ViewStates.Visible;
-                }
-            }
-            catch (InvalidArgumentException e)
-            {
-                ShowDialog(e.Message);
-            }
-        }
-
-        protected override void Reset()
-        {
-            //mPurchaseButton.Enabled = false;
-
-            //mAddPaymentMethodButton.Visibility = ViewStates.Gone;
-
-            clearNonce();
         }
 
         private void DisplayResult(PaymentMethodNonce paymentMethodNonce, string deviceData)
@@ -357,23 +338,22 @@ namespace NaxamDemoCopy
 
             SafelyCloseLoadingView();
 
-            if (resultCode == Result.Ok)
+            if (resultCode == Android.App.Result.Ok)
             {
                 DropInResult result = (DropInResult)data.GetParcelableExtra(DropInResult.ExtraDropInResult);
                 DisplayResult(result.PaymentMethodNonce, result.DeviceData);
                 mPurchaseButton.Enabled = (true);
             }
-            else if (resultCode != Result.Canceled)
+            else if (resultCode != Android.App.Result.Canceled)
             {
                 SafelyCloseLoadingView();
                 var error = data.GetSerializableExtra(DropInActivity.ExtraError);
 
 				Java.Lang.Exception exeption = (Java.Lang.Exception)error;
 
-				ShowDialog((exeption).Message);
-            }
-        }
-
-    }
+				System.Diagnostics.Debug.WriteLine((exeption).Message);
+			}
+		}
+	}
 }
 

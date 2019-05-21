@@ -6,11 +6,8 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.App;
 using Com.Braintreepayments.Api.Models;
-using NaxamDemoCopy.Models;
-using Android.Text;
-using System.Threading.Tasks;
 
-namespace NaxamDemoCopy
+namespace NaxamDemoSlim
 {
     [Activity(Label = "CreateTransactionActivity", Theme = "@style/Theme.AppCompat.Light")]
     public class CreateTransactionActivity : AppCompatActivity

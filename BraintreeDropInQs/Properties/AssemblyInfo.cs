@@ -6,11 +6,11 @@ using Android.App;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NaxamDemoCopy")]
+[assembly: AssemblyTitle("NaxamDemoSlim")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NaxamDemoCopy")]
+[assembly: AssemblyProduct("NaxamDemoSlim")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
