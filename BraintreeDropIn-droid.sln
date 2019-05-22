@@ -5,38 +5,51 @@ VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naxam.BraintreeDropIn.Droid", "Naxam.BraintreeDropIn.Droid\Naxam.BraintreeDropIn.Droid.csproj", "{33E916F1-74CE-40E0-A5A8-B7043C3623F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BraintreeDropInQs", "BraintreeDropInQs\BraintreeDropInQs.csproj", "{040714AD-8105-4006-8DA5-77D2775EA9A9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{B6D84F02-DDC1-40FE-B8BF-E2FB83C77BAA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardFormBindings", "CardFormBindings\CardFormBindings.csproj", "{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaxamDemoSlim", "NaxamDemoApp\NaxamDemoSlim.csproj", "{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{33E916F1-74CE-40E0-A5A8-B7043C3623F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{33E916F1-74CE-40E0-A5A8-B7043C3623F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33E916F1-74CE-40E0-A5A8-B7043C3623F7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{33E916F1-74CE-40E0-A5A8-B7043C3623F7}.Debug|x64.Build.0 = Debug|Any CPU
+		{33E916F1-74CE-40E0-A5A8-B7043C3623F7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{33E916F1-74CE-40E0-A5A8-B7043C3623F7}.Debug|x86.Build.0 = Debug|Any CPU
 		{33E916F1-74CE-40E0-A5A8-B7043C3623F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33E916F1-74CE-40E0-A5A8-B7043C3623F7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{040714AD-8105-4006-8DA5-77D2775EA9A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{040714AD-8105-4006-8DA5-77D2775EA9A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{040714AD-8105-4006-8DA5-77D2775EA9A9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{040714AD-8105-4006-8DA5-77D2775EA9A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{040714AD-8105-4006-8DA5-77D2775EA9A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{040714AD-8105-4006-8DA5-77D2775EA9A9}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33E916F1-74CE-40E0-A5A8-B7043C3623F7}.Release|x64.ActiveCfg = Release|Any CPU
+		{33E916F1-74CE-40E0-A5A8-B7043C3623F7}.Release|x64.Build.0 = Release|Any CPU
+		{33E916F1-74CE-40E0-A5A8-B7043C3623F7}.Release|x86.ActiveCfg = Release|Any CPU
+		{33E916F1-74CE-40E0-A5A8-B7043C3623F7}.Release|x86.Build.0 = Release|Any CPU
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Debug|x64.ActiveCfg = Debug|x64
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Debug|x64.Build.0 = Debug|x64
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Debug|x64.Deploy.0 = Debug|x64
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Debug|x86.ActiveCfg = Debug|x86
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Debug|x86.Build.0 = Debug|x86
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Debug|x86.Deploy.0 = Debug|x86
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Release|x64.ActiveCfg = Release|x64
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Release|x64.Build.0 = Release|x64
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Release|x64.Deploy.0 = Release|x64
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Release|x86.ActiveCfg = Release|x86
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Release|x86.Build.0 = Release|x86
+		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{040714AD-8105-4006-8DA5-77D2775EA9A9} = {B6D84F02-DDC1-40FE-B8BF-E2FB83C77BAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19A455B3-7C17-4181-9CFB-37985260534D}

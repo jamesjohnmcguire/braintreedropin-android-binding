@@ -28,22 +28,22 @@ namespace NaxamDemoSlim
     public class MainActivity
 		:
 		AppCompatActivity,
-		IPaymentMethodNonceCreatedListener, 
-		IBraintreeCancelListener, 
-		IBraintreeErrorListener, 
+		IPaymentMethodNonceCreatedListener,
+		IBraintreeCancelListener,
+		IBraintreeErrorListener,
 		DropInResult.IDropInResultListener
     {
 		static string KEY_AUTHORIZATION = "com.braintreepayments.demo.KEY_AUTHORIZATION";
 		static int DROP_IN_REQUEST = 100;
 
-        static string KEY_NONCE = "nonce";
+		static string KEY_NONCE = "nonce";
 
 		protected string mAuthorization;
 		protected string mCustomerId;
 		protected BraintreeFragment mBraintreeFragment;
 
 		PaymentMethodType mPaymentMethodType;
-        PaymentMethodNonce mNonce;
+		PaymentMethodNonce mNonce;
 
         CardView mPaymentMethod;
         ImageView mPaymentMethodIcon;
@@ -98,7 +98,7 @@ namespace NaxamDemoSlim
         {
 			PaymentService.SubmitPayment(mAuthorization);
 			//AddPaymentMethod();
-        }
+		}
 
 		public void AddPaymentMethod()
 		{
@@ -113,9 +113,7 @@ namespace NaxamDemoSlim
         {
 			PayPalOneTouchCore.UseHardcodedConfig(this, true);
 			mAuthorization = "sandbox_tmxhyf7d_dcpspy2brwdjr3qn";
-
 			base.OnResume();
-
             if (mPurchased)
             {
                 mPurchased = false;
@@ -142,11 +140,7 @@ namespace NaxamDemoSlim
         protected override void OnSaveInstanceState(Bundle outState)
         {
             base.OnSaveInstanceState(outState);
-			if (mAuthorization != null)
-			{
-				outState.PutString(KEY_AUTHORIZATION, mAuthorization);
-			}
-			if (mNonce != null)
+            if (mNonce != null)
             {
                 outState.PutParcelable(KEY_NONCE, mNonce);
             }
@@ -338,16 +332,16 @@ namespace NaxamDemoSlim
 
             SafelyCloseLoadingView();
 
-            if (resultCode == Android.App.Result.Ok)
-            {
-                DropInResult result = (DropInResult)data.GetParcelableExtra(DropInResult.ExtraDropInResult);
-                DisplayResult(result.PaymentMethodNonce, result.DeviceData);
-                mPurchaseButton.Enabled = (true);
-            }
-            else if (resultCode != Android.App.Result.Canceled)
-            {
-                SafelyCloseLoadingView();
-                var error = data.GetSerializableExtra(DropInActivity.ExtraError);
+			if (resultCode == Android.App.Result.Ok)
+			{
+				DropInResult result = (DropInResult)data.GetParcelableExtra(DropInResult.ExtraDropInResult);
+				DisplayResult(result.PaymentMethodNonce, result.DeviceData);
+				mPurchaseButton.Enabled = (true);
+			}
+			else if (resultCode != Android.App.Result.Canceled)
+			{
+				SafelyCloseLoadingView();
+				var error = data.GetSerializableExtra(DropInActivity.ExtraError);
 
 				Java.Lang.Exception exeption = (Java.Lang.Exception)error;
 
