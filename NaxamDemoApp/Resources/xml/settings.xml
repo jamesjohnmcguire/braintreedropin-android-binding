@@ -28,7 +28,7 @@
   <PreferenceCategory
     android:title="@string/options">
 
-	  <NaxamDemoCopy.Views.SummaryEditTestPreference
+	  <NaxamDemoSlim.Views.SummaryEditTestPreference
 		android:key="merchant_account"
       android:title="@string/merchant_account"
       android:summary="@string/empty_merchant_account"
@@ -57,13 +57,13 @@
       android:summary="@string/android_pay_require_phone_number_summary"
       android:defaultValue="false" />
 
-	  <NaxamDemoCopy.Views.SummaryEditTestPreference
+	  <NaxamDemoSlim.Views.SummaryEditTestPreference
 		android:key="android_pay_currency"
       android:title="@string/android_pay_currency_title"
       android:summary="@string/android_pay_currency_summary"
       android:defaultValue="USD" />
 
-	  <NaxamDemoCopy.Views.SummaryEditTestPreference
+	  <NaxamDemoSlim.Views.SummaryEditTestPreference
 		android:key="android_pay_allowed_countries_for_shipping"
       android:title="@string/android_pay_allowed_countries_for_shipping_title"
       android:summary="@string/android_pay_allowed_countries_for_shipping_summary"
