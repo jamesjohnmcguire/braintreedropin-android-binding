@@ -6,6 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <AndroidApplication>True</AndroidApplication>
     <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+		<AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+		<AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
     <AndroidLinkMode>None</AndroidLinkMode>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidResgenClass>Resource</AndroidResgenClass>
