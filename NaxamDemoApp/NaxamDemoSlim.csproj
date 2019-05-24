@@ -11,20 +11,17 @@
     <AndroidLinkMode>None</AndroidLinkMode>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidResgenClass>Resource</AndroidResgenClass>
-    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>NaxamDemoSlim</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <MandroidI18n />
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
     <OutputType>Library</OutputType>
     <ProjectGuid>{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProductVersion>8.0.30703</ProductVersion>
     <RootNamespace>NaxamDemoSlim</RootNamespace>
     <SchemaVersion>2.0</SchemaVersion>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
@@ -41,8 +38,6 @@
     <EnableLLVM>false</EnableLLVM>
     <EnableProguard>true</EnableProguard>
     <ErrorReport>prompt</ErrorReport>
-    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
-    <MandroidI18n />
     <Optimize>False</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <PlatformTarget>x86</PlatformTarget>
