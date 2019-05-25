@@ -1,32 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
 	ToolsVersion="4.0" DefaultTargets="Build" >
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <AndroidApplication>True</AndroidApplication>
-    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<AndroidApplication>True</AndroidApplication>
+		<AndroidEnableMultiDex>true</AndroidEnableMultiDex>
 		<AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
 		<AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
-    <AndroidLinkMode>None</AndroidLinkMode>
-    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <AndroidResgenClass>Resource</AndroidResgenClass>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>NaxamDemoSlim</AssemblyName>
-    <FileAlignment>512</FileAlignment>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
-    <MandroidI18n />
-    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
-    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <OutputType>Library</OutputType>
-    <ProjectGuid>{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}</ProjectGuid>
-    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <RootNamespace>NaxamDemoSlim</RootNamespace>
-    <SchemaVersion>2.0</SchemaVersion>
-    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<AndroidLinkMode>None</AndroidLinkMode>
+		<AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+		<AndroidResgenClass>Resource</AndroidResgenClass>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<AssemblyName>NaxamDemoSlim</AssemblyName>
+		<FileAlignment>512</FileAlignment>
+		<GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+		<JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+		<MandroidI18n />
+		<MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+		<MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+		<OutputType>Library</OutputType>
+		<ProjectGuid>{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}</ProjectGuid>
+		<ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+		<RootNamespace>NaxamDemoSlim</RootNamespace>
+		<SchemaVersion>2.0</SchemaVersion>
+		<TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <AndroidSupportedAbis>x86;x86_64;arm64-v8a</AndroidSupportedAbis>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AotAssemblies>false</AotAssemblies>
@@ -140,9 +140,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="Card.IO.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.CardIO.Android.5.5.1\lib\MonoAndroid403\Card.IO.Android.dll</HintPath>
-    </Reference>
+    <Reference Include="Mono.Android.Export" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="Naxam.BrainTree.BrowserSwitch.Droid, Version=0.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Naxam.BrainTree.BrowserSwitch.Droid.0.1.4\lib\MonoAndroid10\Naxam.BrainTree.BrowserSwitch.Droid.dll</HintPath>
     </Reference>
@@ -157,6 +157,11 @@
     </Reference>
     <Reference Include="Naxam.Paypal.OneTouch, Version=2.10.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Naxam.Paypal.OneTouch.2.10.0.1\lib\MonoAndroid10\Naxam.Paypal.OneTouch.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Card.IO.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.CardIO.Android.5.5.1\lib\MonoAndroid403\Card.IO.Android.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.GooglePlayServices.Basement">
       <HintPath>..\packages\Xamarin.GooglePlayServices.Basement.60.1142.0\lib\MonoAndroid80\Xamarin.GooglePlayServices.Basement.dll</HintPath>
@@ -233,7 +238,6 @@
     <Reference Include="Xamarin.Android.Support.v14.Preference">
       <HintPath>..\packages\Xamarin.Android.Support.v14.Preference.26.1.0.1\lib\MonoAndroid80\Xamarin.Android.Support.v14.Preference.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Android.Export" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Naxam.BraintreeDropIn.Droid\Naxam.BraintreeDropIn.Droid.csproj">
