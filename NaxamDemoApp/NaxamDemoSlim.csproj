@@ -164,6 +164,8 @@
     <PackageReference Include="Naxam.Paypal.OneTouch">
       <Version>2.10.0.1</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Xamarin.Android.Arch.Core.Common">
       <Version>1.0.0</Version>
     </PackageReference>
