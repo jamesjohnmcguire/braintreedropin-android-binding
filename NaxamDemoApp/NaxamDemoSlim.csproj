@@ -10,6 +10,7 @@
     <AndroidLinkMode>None</AndroidLinkMode>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>NaxamDemoSlim</AssemblyName>
     <FileAlignment>512</FileAlignment>
