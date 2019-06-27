@@ -200,16 +200,16 @@ namespace NaxamDemoSlim
                 mPaymentMethodType = result.PaymentMethodType;
 
                 mPaymentMethodIcon.SetImageResource(result.PaymentMethodType.Drawable);
-                if (result.PaymentMethodNonce != null)
-                {
-                    DisplayResult(result.PaymentMethodNonce, result.DeviceData);
-                }
-                else if (result.PaymentMethodType == PaymentMethodType.AndroidPay)
-                {
-                    mPaymentMethodTitle.SetText(PaymentMethodType.AndroidPay.LocalizedName);
-                    mPaymentMethodDescription.Text = "";
-                    mPaymentMethod.Visibility = Android.Views.ViewStates.Visible;
-                }
+                //if (result.PaymentMethodNonce != null)
+                //{
+                //    DisplayResult(result.PaymentMethodNonce, result.DeviceData);
+                //}
+                //else if (result.PaymentMethodType == PaymentMethodType.AndroidPay)
+                //{
+                //    mPaymentMethodTitle.SetText(PaymentMethodType.AndroidPay.LocalizedName);
+                //    mPaymentMethodDescription.Text = "";
+                //    mPaymentMethod.Visibility = Android.Views.ViewStates.Visible;
+                //}
 
                 mPurchaseButton.Enabled = true;
             }
@@ -260,9 +260,9 @@ namespace NaxamDemoSlim
         private void DisplayResult(PaymentMethodNonce paymentMethodNonce, string deviceData)
         {
             mNonce = paymentMethodNonce;
-            mPaymentMethodType = PaymentMethodType.ForType(mNonce);
+            //mPaymentMethodType = PaymentMethodType.ForType(mNonce);
 
-            mPaymentMethodIcon.SetImageResource(PaymentMethodType.ForType(mNonce).Drawable);
+            //mPaymentMethodIcon.SetImageResource(PaymentMethodType.ForType(mNonce).Drawable);
             mPaymentMethodTitle.Text = paymentMethodNonce.TypeLabel;
             mPaymentMethodDescription.Text = paymentMethodNonce.Description;
             mPaymentMethod.Visibility = Android.Views.ViewStates.Visible;
@@ -334,18 +334,18 @@ namespace NaxamDemoSlim
 
 			if (resultCode == Android.App.Result.Ok)
 			{
-				DropInResult result = (DropInResult)data.GetParcelableExtra(DropInResult.ExtraDropInResult);
-				DisplayResult(result.PaymentMethodNonce, result.DeviceData);
-				mPurchaseButton.Enabled = (true);
+				//DropInResult result = (DropInResult)data.GetParcelableExtra(DropInResult.ExtraDropInResult);
+				//DisplayResult(result.PaymentMethodNonce, result.DeviceData);
+				//mPurchaseButton.Enabled = (true);
 			}
 			else if (resultCode != Android.App.Result.Canceled)
 			{
-				SafelyCloseLoadingView();
-				var error = data.GetSerializableExtra(DropInActivity.ExtraError);
+				//SafelyCloseLoadingView();
+				//var error = data.GetSerializableExtra(DropInActivity.ExtraError);
 
-				Java.Lang.Exception exeption = (Java.Lang.Exception)error;
+				//Java.Lang.Exception exeption = (Java.Lang.Exception)error;
 
-				System.Diagnostics.Debug.WriteLine((exeption).Message);
+				//System.Diagnostics.Debug.WriteLine((exeption).Message);
 			}
 		}
 	}

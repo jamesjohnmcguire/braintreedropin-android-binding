@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naxam.BraintreeDropIn.Droid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaxamDemoSlim", "NaxamDemoApp\NaxamDemoSlim.csproj", "{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidBindingsLibrary", "AndroidBindingsLibrary\AndroidBindingsLibrary.csproj", "{8F624B47-F8A2-4066-AC5E-2FB4FAD374EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardFormBindings", "CardFormBindings\CardFormBindings.csproj", "{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,30 @@ Global
 		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Release|x86.ActiveCfg = Release|Any CPU
 		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Release|x86.Build.0 = Release|Any CPU
 		{F19FBEC1-3DD4-4D76-A9F5-574E1B302F36}.Release|x86.Deploy.0 = Release|Any CPU
+		{8F624B47-F8A2-4066-AC5E-2FB4FAD374EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F624B47-F8A2-4066-AC5E-2FB4FAD374EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F624B47-F8A2-4066-AC5E-2FB4FAD374EA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8F624B47-F8A2-4066-AC5E-2FB4FAD374EA}.Debug|x64.Build.0 = Debug|Any CPU
+		{8F624B47-F8A2-4066-AC5E-2FB4FAD374EA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8F624B47-F8A2-4066-AC5E-2FB4FAD374EA}.Debug|x86.Build.0 = Debug|Any CPU
+		{8F624B47-F8A2-4066-AC5E-2FB4FAD374EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F624B47-F8A2-4066-AC5E-2FB4FAD374EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F624B47-F8A2-4066-AC5E-2FB4FAD374EA}.Release|x64.ActiveCfg = Release|Any CPU
+		{8F624B47-F8A2-4066-AC5E-2FB4FAD374EA}.Release|x64.Build.0 = Release|Any CPU
+		{8F624B47-F8A2-4066-AC5E-2FB4FAD374EA}.Release|x86.ActiveCfg = Release|Any CPU
+		{8F624B47-F8A2-4066-AC5E-2FB4FAD374EA}.Release|x86.Build.0 = Release|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Debug|x64.Build.0 = Debug|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Debug|x86.Build.0 = Debug|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Release|x64.ActiveCfg = Release|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Release|x64.Build.0 = Release|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Release|x86.ActiveCfg = Release|Any CPU
+		{B59C5C17-A6F8-4C24-9F41-3DBE1F320C4B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
